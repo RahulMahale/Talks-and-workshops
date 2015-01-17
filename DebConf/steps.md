@@ -21,7 +21,7 @@ Edit the file /etc/default/udhcpd and change the line:
 
 to
 
-    #DHCPD_ENABLED="no"
+    DHCPD_ENABLED="yes" #or comment it out
 
 
     sudo ifconfig wlan0 192.168.42.1
@@ -34,17 +34,12 @@ To set this up automatically on boot, edit the file /etc/network/interfaces and 
 
 If the line "iface wlan0 inet dhcp" is not present, add the above lines to the bottom of the file.
 
-Change the lines (they probably wont all be next to each other):
+Comment the following lines (they probably wont all be next to each other):
 
     allow-hotplug wlan0
     wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
     iface default inet manual
 
-to:
-
-    #allow-hotplug wlan0
-    #wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
-    #iface default inet dhcp
 
 
 3. Configure HostAPD. You can create an open network, or a WPA-secured network. A secure network is recommended to prevent unauthorized use and tampering, but you can also create an open network. To create a WPA-secured network, edit the file /etc/hostapd/hostapd.conf (create it if it doesnt exist) and add the following lines:
@@ -75,10 +70,8 @@ If you would like to create an open network, put the following text into /etc/ho
 Change ssid= and channel= to values of your choice. Note that anyone will be able to connect to your network, which is generally not a good idea. Also, some regions will hold an access point's owner responsible for any traffic that passes though an open wireless network, regardless of who actually caused that traffic.
 
 Edit the file /etc/default/hostapd and change the line:
-
-     #DAEMON_CONF=""
-
-to:
+uncomment and chenge it to
+   
 
      DAEMON_CONF="/etc/hostapd/hostapd.conf"
 
