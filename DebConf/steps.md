@@ -28,8 +28,8 @@ to
 
 To set this up automatically on boot, edit the file /etc/network/interfaces and replace the line "iface wlan0 inet dhcp" to:
 
-    iface wlan0 inet static
-       address 192.168.42.1
+     iface wlan0 inet static
+       address 192.168.9.1
        netmask 255.255.255.0
 
 If the line "iface wlan0 inet dhcp" is not present, add the above lines to the bottom of the file.
@@ -42,7 +42,8 @@ Comment the following lines (they probably wont all be next to each other):
 
 
 
-3. Configure HostAPD. You can create an open network, or a WPA-secured network. A secure network is recommended to prevent unauthorized use and tampering, but you can also create an open network. To create a WPA-secured network, edit the file /etc/hostapd/hostapd.conf (create it if it doesnt exist) and add the following lines:
+3. Configure HostAPD. You can create an open network, or a WPA-secured network. A secure network is recommended to prevent unauthorized use and tampering, but you can also create an open network. To create a WPA-secured network, edit the file /etc/hostapd/hostapd.conf (create it if it doesnt exist) and add the following lines
+
 
      interface=wlan0
      driver=nl80211
@@ -76,7 +77,8 @@ uncomment and chenge it to
      DAEMON_CONF="/etc/hostapd/hostapd.conf"
 
 
-4. Configure NAT (Network Address Translation). NAT is a technique that allows several devices to use a single connection to the internet. Linux supports NAT using Netfilter (also known as iptables) and is fairly easy to set up. First, enable IP forwarding in the kernel:
+4. Configure NAT (Network Address Translation). NAT is a technique that allows several devices to use a single connection to the internet. Linux supports NAT using Netfilter (also known as iptables) and is fairly easy to set up. First, enable IP forwarding in the kernel
+
 
      sudo sh -c "echo 1 > /proc/sys/net/ipv4/ip_forward"
 
@@ -98,7 +100,8 @@ Now edit the file /etc/network/interfaces and add the following line to the bott
 
      up iptables-restore < /etc/iptables.ipv4.nat
 
-5. Fire it up! Run the following commands to start the access point:
+5. Fire it up! Run the following commands to start the access point
+
 
      sudo service hostapd start
      sudo service udhcpd start
