@@ -62,22 +62,22 @@ Comment the following lines (they probably wont all be next to each other):
       rsn_pairwise=CCMP
 </pre> 
 If you would like to create an open network, put the following text into /etc/hostapd/hostapd.conf:
-
+<pre>
      interface=wlan0
      ssid=My_AP
      hw_mode=g
      channel=6
      auth_algs=1
      wmm_enabled=0
-
+</pre>
 Change ssid= and channel= to values of your choice. Note that anyone will be able to connect to your network, which is generally not a good idea. Also, some regions will hold an access point's owner responsible for any traffic that passes though an open wireless network, regardless of who actually caused that traffic.
 
 Edit the file /etc/default/hostapd and change the line:
 uncomment and chenge it to
-   
+ <pre>
 
      DAEMON_CONF="/etc/hostapd/hostapd.conf"
-
+</pre>
 
 4. Configure NAT (Network Address Translation). NAT is a technique that allows several devices to use a single connection to the internet. Linux supports NAT using Netfilter (also known as iptables) and is fairly easy to set up. First, enable IP forwarding in the kernel
 
