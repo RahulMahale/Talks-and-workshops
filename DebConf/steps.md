@@ -1,4 +1,6 @@
 
+ Detailed Document to be run on Raspbian to prepare it as a Wifi Router
+ 
 steps for configuring Pi as Wifi Router
 
     sudo apt-get install hostapd udhcpd
@@ -92,7 +94,7 @@ Second, to enable NAT in the kernel, run the following commands:
      sudo iptables -A FORWARD -i eth0 -o wlan0 -m state --state RELATED,ESTABLISHED -j ACCEPT
      sudo iptables -A FORWARD -i wlan0 -o eth0 -j ACCEPT
 
-These instructions don't give a good solution for rerouting https and for URLs referring to a page inside a domain, like www.nu.nl/38274.htm. The user will see a 404 error. Your Pi is now NAT-ing. To make this permanent so you don't have to run the commands after each reboot, run the following command:
+These instructions don't give a good solution for rerouting https and for URLs referring to a page inside a domain, like abc.com/abc.htm. The user will see a 404 error. Your Pi is now NAT-ing. To make this permanent so you don't have to run the commands after each reboot, run the following command:
 
      sudo sh -c "iptables-save > /etc/iptables.ipv4.nat"
 
