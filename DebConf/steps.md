@@ -45,7 +45,7 @@ Comment the following lines (they probably wont all be next to each other):
 
 
 3. Configure HostAPD. You can create an open network, or a WPA-secured network. A secure network is recommended to prevent unauthorized use and tampering, but you can also create an open network. To create a WPA-secured network, edit the file /etc/hostapd/hostapd.conf (create it if it doesnt exist) and add the following:
-
+<pre>
 
       interface=wlan0
       driver=nl80211
@@ -60,7 +60,7 @@ Comment the following lines (they probably wont all be next to each other):
       wpa_key_mgmt=WPA-PSK
       wpa_pairwise=TKIP
       rsn_pairwise=CCMP
- 
+</pre> 
 If you would like to create an open network, put the following text into /etc/hostapd/hostapd.conf:
 
      interface=wlan0
