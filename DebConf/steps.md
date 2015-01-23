@@ -75,10 +75,8 @@ Change ssid= and channel= to values of your choice. Note that anyone will be abl
 Edit the file /etc/default/hostapd and change the line:
 uncomment and chenge it to
  <pre>
-
-     DAEMON_CONF="/etc/hostapd/hostapd.conf"
+    DAEMON_CONF="/etc/hostapd/hostapd.conf"
 </pre>
-
 4. Configure NAT (Network Address Translation). NAT is a technique that allows several devices to use a single connection to the internet. Linux supports NAT using Netfilter (also known as iptables) and is fairly easy to set up. First, enable IP forwarding in the kernel
 
 
